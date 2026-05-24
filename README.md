@@ -32,3 +32,6 @@ A scalable backend REST API built using Node.js and Express.js to manage custome
 ---
 
 ##  Project Structure
+
+<img width="159" height="260" alt="image" src="https://github.com/user-attachments/assets/3499b33b-1632-43d4-a4e5-847d843db7d1" />
+
