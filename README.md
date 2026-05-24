@@ -1,5 +1,7 @@
 #  Node.js RESTful API – Customer & Product Management System
+
 A scalable backend REST API built using Node.js and Express.js to manage customer and product data. This project demonstrates backend development skills including API design, modular architecture, authentication, and database handling.
+
 ---
 
 ##  Features
@@ -32,11 +34,6 @@ A scalable backend REST API built using Node.js and Express.js to manage custome
 
 <img width="159" height="260" alt="image" src="https://github.com/user-attachments/assets/3499b33b-1632-43d4-a4e5-847d843db7d1" />
 ---
-
-##   Installation
-
-### Install Dependencies
-```bash
 npm install
 
 ##  Run the Server
@@ -94,3 +91,4 @@ Implement refresh tokens for authentication
 
 Valarmathy 
 Web Developer | Node.js | Full Stack Developer
+
