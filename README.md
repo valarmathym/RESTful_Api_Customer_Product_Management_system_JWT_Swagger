@@ -29,18 +29,22 @@ A scalable backend REST API built using Node.js and Express.js to manage custome
 ---
 
 ##  Project Structure
+
 <img width="159" height="260" alt="image" src="https://github.com/user-attachments/assets/3499b33b-1632-43d4-a4e5-847d843db7d1" />
 ---
 
-## Installation Dependencies
-npm install
+##  Installation Dependencies
+
+   npm install
 ---
 
-## Run the Server
-node server.js
+##  Run the Server
+
+   node server.js
 ---
 
 ## API Modules
+
 Customer APIs
 Create customer
 Get all customers
@@ -55,16 +59,19 @@ Delete product
 ---
 
 ## Testing
+
 Tested using Postman collection
 Includes structured test cases in /TESTING folder
 Manual validation of all CRUD operations
 ---
 
 ## API Documentation
+
 Swagger (OpenAPI) is used to provide interactive API documentation and endpoint details.
 ---
 
 ##  Learning Outcomes
+
 REST API development using Node.js
 Modular backend architecture design
 JWT authentication and authorization
@@ -74,6 +81,7 @@ Backend system structuring and best practices
 ---
 
 ## Future Improvements
+
 Integrate MongoDB or MySQL database
 Improve validation and error handling
 Deploy on cloud platform (AWS / Render / Railway)
@@ -81,5 +89,6 @@ Add frontend interface
 Implement refresh tokens for authentication
 --
 ## Author
+
 Valarmathy 
 Web Developer | Node.js | Full Stack Developer
