@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Request for Orders/Gelos GMS</title>
+</head>
+<body>
+    <h1>POST Request for Orders</h1>
+
+    <button id="postButton">Send POST Request</button>
+
+    <script>
+        // Paste the JavaScript code provided in the previous response here
+        const apiUrl = 'http://localhost:3000/orders'; // Replace with your server's URL
+
+        const dataToSend = {
+   "OrderNo": 1031,
+   "OrderDate": "28/05/2022",
+   "CustNo": 8789798001,
+   "ProductCode": 100,
+   "ProductName": " Spicy Noodle",
+   "ProductQuantity": 100,
+   "ProductPrice": 10,
+   "Total": 1000,
+   "ModeOfPayment": "Cash"
+ };   
+
+        document.getElementById('postButton').addEventListener('click', () => {
+            fetch(apiUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                // Add any other headers as needed
+              },
+              body: JSON.stringify(dataToSend),
+            })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then(data => {
+                console.log('Response data:', data);
+                alert('POST request successful!');
+              })
+              .catch(error => {
+                console.error('Fetch error:', error);
+                alert('Error: POST request failed.');
+              });
+        });
+    </script>
+</body>
+</html>
+
+

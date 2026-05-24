@@ -1,0 +1,48 @@
+[{
+ 
+  "firstName": "Bob",
+  "lastName": "Johnson",
+  "email": "bob.johnson@example.com",
+  "address": {
+    "street": "789 Elm St",
+    "city": "Anycity",
+    "state": "CA",
+    "zip": "23456"
+  }
+},
+{
+  
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zip": "12345"
+  }
+},
+{
+ 
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "address": {
+    "street": "456 Oak St",
+    "city": "Somecity",
+    "state": "CA",
+    "zip": "67890"
+  }
+},
+{
+
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zip": "12345"
+  }
+}]

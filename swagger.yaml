@@ -1,0 +1,528 @@
+openapi: 3.0.1
+info:
+  title: PROJECT3 API
+  description: API for managing products, orders, customers, and users
+  version: 1.0.0
+  contact:
+    name: API Support
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /products:
+    get:
+      summary: Get all products
+      tags: 
+        - Products
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      summary: Create a new product
+      tags: 
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        "201":
+          description: Product created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Bad request
+
+  /products/{id}:
+    get:
+      summary: Get a specific product
+      tags: 
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Product not found
+    put:
+      summary: Update a product
+      tags: [Products]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+    patch:
+      summary: Partially update a product
+      tags: 
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        "200":
+          description: Product updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Product not found
+    delete:
+      summary: Delete a product
+      tags: 
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Product deleted successfully
+        "404":
+          description: Product not found
+
+  /orders:
+    get:
+      summary: Get all orders
+      tags: 
+        - Orders
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+    post:
+      summary: Create a new order
+      tags: 
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            example:
+              OrderNo: 2020
+              OrderDate: "25/05/2022"
+              CustNo: 987600000
+              ProductCode: 100
+              ProductName: "Sandalwood oil(organic)"
+              ProductQuantity: 3
+              ProductPrice: 50
+              Total: 150
+              ModeOfPayment: "Cash"
+      responses:
+        "201":
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "400":
+          description: Bad request
+
+  /orders/{id}:
+    put:
+      summary: Update an order
+      tags: [Orders]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: Order updated successfully
+        '404':
+          description: Order not found
+    patch:
+      summary: Partially update an order
+      tags: [Orders]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: Order updated successfully
+        '404':
+          description: Order not found
+    delete:
+      summary: Delete an order
+      tags: [Orders]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order deleted successfully
+        '404':
+          description: Order not found
+
+  /customers:
+    get:
+      summary: Get all customers
+      tags: [Customers]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    post:
+      summary: Create a new customer
+      tags: [Customers]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          description: Customer created successfully
+        '400':
+          description: Bad request
+
+  /customers/{id}:
+    put:
+      summary: Update a customer
+      tags: [Customers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            example:
+              firstName: "Emily"
+              lastName: "Johnson"
+              email: "john.doe@example.com"
+              address:
+                street: "3333 Merryland St"
+                city: "Goodshell town"
+                state: "CA"
+                zip: "12345"
+      responses:
+        '200':
+          description: Customer updated successfully
+        '404':
+          description: Customer not found
+    patch:
+      summary: Partially update a customer
+      tags: [Customers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Customer updated successfully
+        '404':
+          description: Customer not found
+    delete:
+      summary: Delete a customer
+      tags: [Customers]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Customer deleted successfully
+        '404':
+          description: Customer not found
+
+  /users:
+    get:
+      summary: Get all users
+      tags: [Users]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+  /employees:
+    get:
+      summary: Get all employees
+      tags: [Employees]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+
+  /login:
+    post:
+      summary: User login
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: "Jam21"
+                password:
+                  type: string
+                  example: "Axgp231@!"
+              required:
+                - username
+                - password
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+        '401':
+          description: Invalid credentials
+
+  /register:
+    post:
+      summary: User registration
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User registered successfully
+        '400':
+          description: Registration failed
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        ProductCode:
+          type: integer
+        ProductName:
+          type: string
+        ProductPrice:
+          type: number
+        description:
+          type: string
+        category:
+          type: string
+      required:
+        - ProductCode
+        - ProductName
+        - ProductPrice
+
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        OrderNo:
+          type: integer
+        OrderDate:
+          type: string
+        CustNo:
+          type: integer
+        ProductCode:
+          type: integer
+        ProductName:
+          type: string
+        ProductQuantity:
+          type: integer
+        ProductPrice:
+          type: number
+        Total:
+          type: number
+        ModeOfPayment:
+          type: string
+      required:
+        - OrderNo
+        - OrderDate
+        - CustNo
+        - ProductCode
+
+    Customer:
+      type: object
+      properties:
+        _id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        address:
+          type: object
+          properties:
+            street:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            zip:
+              type: string
+          required:
+            - street
+            - city
+            - state
+            - zip
+      required:
+        - firstName
+        - lastName
+        - email
+        - address
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          writeOnly: true
+        role:
+          type: string
+      required:
+        - username
+        - password
+
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        department:
+          type: string
+        position:
+          type: string
+      required:
+        - firstName
+        - lastName
+        - email
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

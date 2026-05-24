@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET Users with Token</title>
+</head>
+<body>
+    <button id="fetchButton">Fetch Users</button>
+
+    <script>
+        const apiUrl = 'http://localhost:3001/users'; // Replace with your server's URL
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikx1YzQzIiwiaWF0IjoxNzUwODE0Mzg0LCJleHAiOjE3NTA4MjUxODR9.tTYgX71dRmXlpBJx9-pbGqDekgLf0CcDcfG4W5xpKTQ';
+
+
+        document.getElementById('fetchButton').addEventListener('click', () => {
+            // Fetch data from the /users route with the token
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
